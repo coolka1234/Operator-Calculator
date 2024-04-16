@@ -60,22 +60,17 @@ bool signedIsGreater(int* iNum1, int* iNum2, int length1, int length2, std::stri
 //dodawanie cyfry na koniec (nie wykorzystywane)
 void CNumber::appendDigit(int digit)
 {
-    // Create a new array to hold the digits, one digit larger
     int* newTable = new int[i_length + 1];
 
-    // Copy the existing digits to the new array
     for (int i = 0; i < i_length; i++) {
         newTable[i] = pi_table[i];
     }
 
-    // Append the new digit to the end of the new array
     newTable[i_length] = digit;
-
-    // Delete the old array and update the pointer
+    
     delete[] pi_table;
     pi_table = newTable;
 
-    // Increase the length
     i_length++;
 }
 //usuwanie zer wiodacych
@@ -394,7 +389,7 @@ CNumber CNumber::operator/(const CNumber& cValue)
     cCopyOfValue.sSign = "+";
     while (isGreater(cCopyOfThis.pi_table, cCopyOfValue.pi_table, cCopyOfThis.i_length, cCopyOfValue.i_length)) //odpowiedne sprawdzenie petli, sprawdza czy suma naszych dzielnikow nie wykracza poza dzielnik
     {
-        cCopyOfThis = cCopyOfThis - (cCopyOfValue); //jesli warunek spelniony to zmniejszamy dzieln¹
+        cCopyOfThis = cCopyOfThis - (cCopyOfValue); //jesli warunek spelniony to zmniejszamy dzielnÂ¹
         iCounterOfDiv++; //wynik zwieksza sie o 1- po prostu do dzielnej zmiescil sie jeszcze jeden dzielnik
         cCopyOfThis.removeLeadingZeros(); //usuniecia zer
         cCopyOfValue.removeLeadingZeros();
@@ -416,7 +411,7 @@ CNumber CNumber::operator/(const CNumber& cValue)
     }
     return cResult;
 }
-//funkcja pomocznicza zwracaj¹ca CNumber jako string
+//funkcja pomocznicza zwracajÂ¹ca CNumber jako string
 std::string CNumber::toStr()
 {
     std::string sValue=this->sSign;
